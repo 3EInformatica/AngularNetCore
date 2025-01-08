@@ -53,3 +53,7 @@ foreach (int numero in numeriOrdinati)
     Console.WriteLine(numero);
 }
 
+int[] vettore= new int[3];
+
+string nome = "Mario";  
+

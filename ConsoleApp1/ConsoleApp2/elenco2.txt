@@ -1,0 +1,12 @@
+﻿rossi|5
+verdi|4
+rossi|3
+verdi|2
+verdi|1
+rossi|2
+verdi|3
+verdi|5
+gialli|1
+neri|2
+gialli|3
+neri|4
