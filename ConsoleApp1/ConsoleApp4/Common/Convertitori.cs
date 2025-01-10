@@ -10,7 +10,7 @@ namespace ConsoleApp4.Common
     {
         public static bool ConvertiBool(string value)
         {
-            if (value == "0" )
+            if (value == "0")
             {
                 return false;
             }
@@ -18,6 +18,7 @@ namespace ConsoleApp4.Common
             {
                 return true;
             }
-            
+
+        }
     }
 }

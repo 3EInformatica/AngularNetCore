@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp4.Models
 {
-    internal class Corsi
+    internal record Corsi
     {
         public Guid Guid { get; set; }
         public int Sequenza { get; set; }
