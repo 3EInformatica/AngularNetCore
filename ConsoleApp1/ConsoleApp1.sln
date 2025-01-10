@@ -10,7 +10,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Materiale", "Materiale", "{9ABC41D8-2E3B-4C6B-809D-E3189203507C}"
 	ProjectSection(SolutionItems) = preProject
 		comuni.csv = comuni.csv
+		corsi.csv = corsi.csv
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp3", "ConsoleApp3\ConsoleApp3.csproj", "{4A6108EE-835A-4481-A650-D34F73D3B27C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +29,10 @@ Global
 		{14DA70B3-FC88-40E9-8A69-B3A3D7ABAA1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14DA70B3-FC88-40E9-8A69-B3A3D7ABAA1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14DA70B3-FC88-40E9-8A69-B3A3D7ABAA1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A6108EE-835A-4481-A650-D34F73D3B27C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A6108EE-835A-4481-A650-D34F73D3B27C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A6108EE-835A-4481-A650-D34F73D3B27C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A6108EE-835A-4481-A650-D34F73D3B27C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
