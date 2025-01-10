@@ -4,15 +4,18 @@ using System.Security.AccessControl;
 using ConsoleApp4.Common;
 using ConsoleApp4.Models;
 
+
+
+
 List<Corsi> listaCorsi = new List<Corsi>();
 
-string contenutoFile = System.IO.File.ReadAllText("C:\\Users\\ACER\\source\\repos\\3EInformatica\\AngularNetCore\\ConsoleApp1\\corsi.csv");
+string contenutoFile = System.IO.File.ReadAllText(Costanti.pathFileToRead);
 var vettoreCorsi = contenutoFile.Split("\r\n");
 
 foreach (var rigaCorso in vettoreCorsi.Skip(1))
 {
 
-    var elementoRigaCorso = rigaCorso.Split(";");
+    var elementoRigaCorso = rigaCorso.Split(Costanti.separatore);
     //VALIDAZIONE
 
     //var esito= Guid.TryParse(elementoRigaCorso[0], out Guid guid);
@@ -25,6 +28,7 @@ foreach (var rigaCorso in vettoreCorsi.Skip(1))
     //objValidator.ValidateGuid(elementoRigaCorso[0]);
     if (!ConsoleApp4.Common.Validator.ValidateGuid(elementoRigaCorso[0]))
     {
+        System.IO.File.AppendAllText(Costanti.pathFileToWriteKO, rigaCorso);
         continue;
     }
     ///sequenza
@@ -90,14 +94,23 @@ foreach (var rigaCorso in vettoreCorsi.Skip(1))
     }
     c.InviaNotificaEmail = (elementoRigaCorso[16] == "0") ? false : true;
 
-    c.Programma = elementoRigaCorso[7];
-
-
     listaCorsi.Add(c);
    
 }
 
-
+string contenuto = "";
+foreach (var corso in listaCorsi)
+{
+    contenuto += corso.Guid +";"
+        +corso.Sequenza + ";"
+        + corso.Codice + ";"
+        + corso.Titolo + ";"
+        + corso.EmailContatto + ";"
+        + corso.Autore + ";"
+        + "\n";
+}   
+File.WriteAllText(Costanti. pathFileToWrite
+    , contenuto);
 
 Console.WriteLine("Funziona!");
 
