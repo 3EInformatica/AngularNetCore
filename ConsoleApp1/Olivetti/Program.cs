@@ -19,7 +19,8 @@ List<DTOProdotti> listaDtoProdotti = FilterService.DescrizioneInLingua(elencoPro
 
 //scrivere l'oggetto creato sopra in un file JSON
 var esito=SaveService.Save(listaDtoProdotti);
-if(esito)
+var esito2=SaveService.SaveGenerico<List<DTOProdotti>>(listaDtoProdotti);
+if (esito)
     Console.WriteLine("Funziona!");
 else
     Console.WriteLine("Non Funziona!");
