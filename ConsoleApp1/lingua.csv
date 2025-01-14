@@ -1,0 +1,10 @@
+Id;LanguageID;SAPLanguageID;Description;Status;IsDeleted;CreatedOn;CreatedUser;ModifiedOn;ModifiedUser
+1;BEF;B;P_FlemishLanguage;1;0;2024-03-12 17:24:52.140;;NULL;NULL
+2;DE ;D;P_GermanLanguage;1;0;2024-03-12 17:24:52.140;;NULL;NULL
+3;EN ;E;P_EnglishLanguage;1;0;2024-03-12 17:24:52.140;;NULL;NULL
+4;FR ;F;P_FrenchLanguage;1;0;2024-03-12 17:24:52.140;;NULL;NULL
+5;IT ;I;P_ItalianLanguage;1;0;2024-03-12 17:24:52.140;;NULL;NULL
+6;NL ;N;P_DutchLanguage;1;0;2024-03-12 17:24:52.140;;NULL;NULL
+7;PT ;P;P_PortugueseLanguage;1;0;2024-03-12 17:24:52.140;;NULL;NULL
+8;ES ;S;P_SpanishLanguage;1;0;2024-03-12 17:24:52.140;;NULL;NULL
+9;BEW;W;P_WalloonLanguage;1;0;2024-03-12 17:24:52.140;;NULL;NULL
