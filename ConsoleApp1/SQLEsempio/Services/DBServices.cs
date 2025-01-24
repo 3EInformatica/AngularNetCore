@@ -4,6 +4,7 @@ using SQLEsempio.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -79,6 +80,32 @@ namespace SQLEsempio.Services
 
             //return elenco.Where(s=>s.CompanyName.StartsWith(letteraIniziale)).ToList();
             return elenco;
+        }
+
+
+
+        public static bool InserisiCorriere(string CompanyName, string Phone)
+        {
+            var risultato = false;
+            //collegare al DB
+            using (SqlConnection conn = new SqlConnection(Costanti.ConnectionSting))
+            {
+                conn.Open();
+
+                string sql = @$"INSERT INTO Shippers (CompanyName,Phone) 
+                            VALUES ('{CompanyName}','{Phone}')";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    var numerorighe = cmd.ExecuteNonQuery();
+                    if(numerorighe > 0) 
+                        risultato = true;
+                }
+                conn.Close();
+            }
+
+
+            return risultato;
         }
     }
 }
