@@ -10,6 +10,7 @@ namespace SQLEsempio.Models
     {
         public string Nome { get; set; }
         public string Cognome { get; set; }
+        public DateTime DataUltimoAccesso { get; set; }
         public Guid id { get; set; }
     }
 }

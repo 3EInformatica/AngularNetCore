@@ -35,7 +35,7 @@ var password = Console.ReadLine();
 var risultato = DBServices.Login(userName, password);
 if (risultato!=null)
 {
-    Console.WriteLine($"Benvenuto {risultato.Cognome} {risultato.Nome}");
+    Console.WriteLine($"Benvenuto {risultato.Cognome} {risultato.Nome} Il tuo ultimo accesso risale al {risultato.DataUltimoAccesso.ToString("dddd dd MMMM yyyy alle HH:mm")}");//ToString("dd/MM/yyyy")
 }
 else
 {
