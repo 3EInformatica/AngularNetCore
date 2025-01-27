@@ -111,6 +111,33 @@ namespace SQLEsempio.Services
         }
         public static Utente Login(string UserName, string Password)
         {
+            //autoban
+            using (SqlConnection conn = new SqlConnection(Costanti.ConnectionSting))
+            {
+                conn.Open();
+                string sql = @$"  select count(1) accessiKO from (
+                  select top 7 * from logaccessi where Username='{UserName}'
+                and DataTentativo> DATEADD(HOUR,-24,  getdate())
+                  order by DataTentativo desc
+                  ) t where esito=0";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    var dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        int accessiKO = Convert.ToInt32(dr["accessiKO"]);
+                        if (accessiKO >= 7)
+                        {
+                            Console.WriteLine("Account Bloccato riprova tra 24 ore");
+                            conn.Close();
+                            return null;
+                        }
+                    }
+                }
+                conn.Close();
+            }
+
+
 
             Utente u = new Utente();
 
@@ -118,6 +145,7 @@ namespace SQLEsempio.Services
             using (SqlConnection conn = new SqlConnection(Costanti.ConnectionSting))
             {
                 conn.Open();
+
 
                 string sql = @$"select Guid, Nome, Cognome,DataUltimoAccesso from Utenti
                              WHERE username ='{UserName.Replace("'", "''")}' collate sql_latin1_general_cp1_cs_as
@@ -139,10 +167,40 @@ namespace SQLEsempio.Services
                         u = null;
                     }
                     dr.Close();
-                    //AGGIORNO la data di ultimo accesso
                     if (u != null)
                     {
+                        //FACCIO SCADERE TUTTE LE SESSIONI più vecchie di 10 minuti
+                        sql = @"  UPDATE Sessioni
+                          set DataFine=getdate()
+                          WHERE DataFine is null
+                          and DataInzio<dateadd(MINUTE,-10, getdate())";
+                        cmd.CommandText = sql;
+                        cmd.ExecuteNonQuery();
+
+                        //CONTROLLO CHE NON ESISTA UNA SESSIONE ATTIVA PER L'UTENTE IN QUESTIONE
+                        sql = @$"SELECT COUNT(1) numeroSessioni FROM Sessioni WHERE Guid = '{u.id}' AND DataFine IS NULL";
+                        cmd.CommandText = sql;
+                        dr = cmd.ExecuteReader();
+                        if (dr.Read())
+                        {
+                            var numeroSessioni = Convert.ToInt32(dr["numeroSessioni"]);
+                            if (numeroSessioni > 0)
+                            {
+                                Console.WriteLine("Utente già loggato");
+                                conn.Close();
+                                return null;
+                            }
+                        }
+                        dr.Close();
+
+
+
+                        //AGGIORNO la data di ultimo accesso
                         sql = @$"UPDATE Utenti SET DataUltimoAccesso = GETDATE() WHERE Guid = '{u.id}'";
+                        cmd.CommandText = sql;
+                        cmd.ExecuteNonQuery();
+                        //CREAO LA SESSION
+                        sql = @$"INSERT INTO Sessioni (Guid,DataInzio) VALUES ('{u.id}',getdate())";
                         cmd.CommandText = sql;
                         cmd.ExecuteNonQuery();
                     }
