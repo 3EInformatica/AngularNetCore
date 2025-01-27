@@ -93,12 +93,12 @@ namespace SQLEsempio.Services
                 conn.Open();
 
                 string sql = @$"INSERT INTO Shippers (CompanyName,Phone) 
-                            VALUES ('{CompanyName}','{Phone}')";
+                            VALUES ('{CompanyName.Replace("'", "''")}','{Phone.Replace("'", "''")}')";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     var numerorighe = cmd.ExecuteNonQuery();
-                    if(numerorighe > 0) 
+                    if (numerorighe > 0)
                         risultato = true;
                 }
                 conn.Close();
@@ -107,5 +107,38 @@ namespace SQLEsempio.Services
 
             return risultato;
         }
+        public static Utente Login(string UserName, string Password)
+        {
+
+            Utente u = new Utente();
+
+
+            using (SqlConnection conn = new SqlConnection(Costanti.ConnectionSting))
+            {
+                conn.Open();
+
+                string sql = @$"select Guid, Nome, Cognome from Utenti
+                             WHERE username ='{UserName.Replace("'","''")}' AND password ='{Password.Replace("'", "''")}'";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    var dr = cmd.ExecuteReader();
+                    //caricare in elenco il risultato della query
+                    if (dr.Read())
+                    {
+                        u.id = Guid.Parse( dr["Guid"].ToString());
+                        u.Nome = dr["Nome"].ToString();
+                        u.Cognome = dr["Cognome"].ToString();
+                    }
+                    else
+                    {
+                        u = null;   
+                    }
+                    dr.Close();
+                }
+                conn.Close();
+                return u;
+        }
+
     }
 }

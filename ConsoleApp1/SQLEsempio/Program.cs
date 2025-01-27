@@ -14,16 +14,30 @@ using SQLEsempio.Services;
 //    Console.WriteLine(item.CompanyName);
 //}
 
-Console.WriteLine("Inserisci la compagnia");
-var compagnia = Console.ReadLine();
-Console.WriteLine("Inserisci il numero di telefono");
-var telefono = Console.ReadLine();
-var risultato=DBServices.InserisiCorriere(compagnia, telefono);
-if (risultato)
+//Console.WriteLine("Inserisci la compagnia");
+//var compagnia = Console.ReadLine();
+//Console.WriteLine("Inserisci il numero di telefono");
+//var telefono = Console.ReadLine();
+//var risultato=DBServices.InserisiCorriere(compagnia, telefono);
+//if (risultato)
+//{
+//    Console.WriteLine("Inserimento avvenuto con successo");
+//}
+//else
+//{
+//    Console.WriteLine("Inserimento fallito");
+//}
+
+Console.WriteLine("Inserisci la username");
+var userName = Console.ReadLine();
+Console.WriteLine("Inserisci la password");
+var password = Console.ReadLine();
+var risultato = DBServices.Login(userName, password);
+if (risultato!=null)
 {
-    Console.WriteLine("Inserimento avvenuto con successo");
+    Console.WriteLine($"Benvenuto {risultato.Cognome} {risultato.Nome}");
 }
 else
 {
-    Console.WriteLine("Inserimento fallito");
+    Console.WriteLine("User o password errate");
 }
