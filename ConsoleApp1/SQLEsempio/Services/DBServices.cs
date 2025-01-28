@@ -145,11 +145,11 @@ namespace SQLEsempio.Services
             using (SqlConnection conn = new SqlConnection(Costanti.ConnectionSting))
             {
                 conn.Open();
-
-
+                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(Password);
+                var passCript= Convert.ToBase64String(plainTextBytes);
                 string sql = @$"select Guid, Nome, Cognome,DataUltimoAccesso from Utenti
                              WHERE username ='{UserName.Replace("'", "''")}' collate sql_latin1_general_cp1_cs_as
-                            AND password ='{Password.Replace("'", "''")}' collate sql_latin1_general_cp1_cs_as";
+                            AND password ='{passCript.Replace("'", "''")}' collate sql_latin1_general_cp1_cs_as";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
