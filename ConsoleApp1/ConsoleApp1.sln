@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Olivetti", "Olivetti\Olivet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLEsempio", "SQLEsempio\SQLEsempio.csproj", "{D64250B6-B7D2-48C8-9D05-1C1ACA53D0CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{9F9E098E-957F-4992-8AEB-69F20F03032E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{D64250B6-B7D2-48C8-9D05-1C1ACA53D0CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D64250B6-B7D2-48C8-9D05-1C1ACA53D0CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D64250B6-B7D2-48C8-9D05-1C1ACA53D0CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F9E098E-957F-4992-8AEB-69F20F03032E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F9E098E-957F-4992-8AEB-69F20F03032E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F9E098E-957F-4992-8AEB-69F20F03032E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F9E098E-957F-4992-8AEB-69F20F03032E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
