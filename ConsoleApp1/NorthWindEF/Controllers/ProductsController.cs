@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using NorthWindEF.DTO;
 using NorthWindEF.Models;
+using NorthWindEF.Request;
 using System.Linq;
 
 namespace NorthWindEF.Controllers
@@ -56,20 +57,31 @@ namespace NorthWindEF.Controllers
 
         [HttpPost]
         [Route("Insert")]
-        public IActionResult Insert([FromBody] Product prodotto)
+        public IActionResult Insert([FromBody] ProductRequest prodotto)
         {
+            var p = new Product();
+            p.ProductName = prodotto.ProductName;
+            p.SupplierId = prodotto.SupplierId;
+            p.CategoryId = prodotto.CategoryId;
+            p.QuantityPerUnit = prodotto.QuantityPerUnit;
+            p.UnitPrice = prodotto.UnitPrice;
+            p.UnitsInStock = prodotto.UnitsInStock;
+            p.UnitsOnOrder = prodotto.UnitsOnOrder;
+            p.ReorderLevel = prodotto.ReorderLevel;
+            p.Discontinued = prodotto.Discontinued;
 
-            context.Products.Add(prodotto);
+
+            context.Products.Add( p);
             context.SaveChanges();
             return Ok(true);
         }
 
         [HttpPut]
         [Route("Update")]
-        public IActionResult Update([FromBody] Product prodotto)
+        public IActionResult Update([FromBody] ProductRequest prodotto)
         {
 
-            context.Products.Update(prodotto);
+            context.Products.Update((Product) prodotto);
             context.SaveChanges();
             return Ok(true);
         }
