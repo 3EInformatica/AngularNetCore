@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using NorthWindEF.DTO;
 using NorthWindEF.Models;
+using System.Linq;
 
 namespace NorthWindEF.Controllers
 {
@@ -134,7 +136,64 @@ namespace NorthWindEF.Controllers
 
             return Ok(pp);
         }
+        [HttpGet]
+        [Route("Search")]
+        public IActionResult GetByNameOrder(string? nomeProdotto,
+                int? supplierId,
+                int? categoryId,
+                string? orderBy,
+                string? orderDirection,
+                int pagina = 1,
+                int record = 10)
+        {
+            IQueryable<Product> products = context.Products
+                .Include(s => s.Supplier).Include(s => s.Category);
+            //if (nomeProdotto!=null && nomeProdotto != "")
+            if (!String.IsNullOrEmpty(nomeProdotto))
+            {
+                products = products.Where(s => s.ProductName.Contains(nomeProdotto));
+            }
+            if (supplierId != null && supplierId != 0)
+            {
+                products = products.Where(s => s.SupplierId == supplierId);
+            }
+            if (categoryId != null && categoryId != 0)
+            {
+                products = products.Where(s => s.CategoryId == categoryId);
+            }
+            if (orderBy == "ProductName")
+            {
+                if (orderDirection == "DESC")
+                    products = products.OrderByDescending(s => s.ProductName);
+                else
+                    products = products.OrderBy(s => s.ProductName);
+            }
+            else if (orderBy == "SupplierID")
+            {
+                if (orderDirection == "DESC")
+                    products = products.OrderByDescending(s => s.SupplierId);
+                else
+                    products = products.OrderBy(s => s.SupplierId);
+            }
+            else if (orderBy == "CategoryID")
+            {
+                if (orderDirection == "DESC")
+                    products = products.OrderByDescending(s => s.CategoryId);
+                else
+                    products = products.OrderBy(s => s.CategoryId);
+            }
+            products = products.Skip((pagina - 1) * record).Take(record);
 
+            var risultato = products.Select(s => new ProdutcDTO()
+            {
+                ProductId = s.ProductId,
+                ProductName = s.ProductName,
+                CategoryName = s.Category.CategoryName,
+                SupplyerName = s.Supplier.CompanyName
+            }
+            ).ToList();
 
+            return Ok(risultato);
+        }
     }
 }
