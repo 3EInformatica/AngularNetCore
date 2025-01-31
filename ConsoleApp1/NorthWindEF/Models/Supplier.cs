@@ -31,5 +31,5 @@ public partial class Supplier
 
     public string HomePage { get; set; }
 
-   // public virtual ICollection<Product> Products { get; set; } = new List<Product>();
+    public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }

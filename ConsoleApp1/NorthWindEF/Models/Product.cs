@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace NorthWindEF.Models;
 
-public partial class Product: ProductRequest
+public partial class Product:ProductRequest
 {
     
 

@@ -299,13 +299,13 @@ public partial class CorsoNetGennaioContext : DbContext
             entity.Property(e => e.UnitsInStock).HasDefaultValue((short)0);
             entity.Property(e => e.UnitsOnOrder).HasDefaultValue((short)0);
 
-            //entity.HasOne(d => d.Category).WithMany(p => p.Products)
-            //    .HasForeignKey(d => d.CategoryId)
-            //    .HasConstraintName("FK_Products_Categories");
+            entity.HasOne(d => d.Category).WithMany(p => p.Products)
+                .HasForeignKey(d => d.CategoryId)
+                .HasConstraintName("FK_Products_Categories");
 
-            //entity.HasOne(d => d.Supplier).WithMany(p => p.Products)
-            //    .HasForeignKey(d => d.SupplierId)
-            //    .HasConstraintName("FK_Products_Suppliers");
+            entity.HasOne(d => d.Supplier).WithMany(p => p.Products)
+                .HasForeignKey(d => d.SupplierId)
+                .HasConstraintName("FK_Products_Suppliers");
         });
 
         modelBuilder.Entity<Region>(entity =>
