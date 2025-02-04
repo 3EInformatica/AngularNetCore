@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Options;
 using NorthWindEF.DTO;
 using NorthWindEF.Models;
@@ -32,10 +33,10 @@ namespace NorthWindEF.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-        public IActionResult GetAll()
+        public IActionResult GetAll<T>()
         {
 
-            var products = context.Products.ToList();
+            var products = context.T.ToList();
 
             return Ok(products);
         }

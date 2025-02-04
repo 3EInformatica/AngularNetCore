@@ -1,0 +1,158 @@
+﻿{
+   "CodeGenerationMode": 4,
+   "ContextClassName": "seiciochemangiContext",
+   "ContextNamespace": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "SCCM",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[AbilitazioniMedicoPrestazione__]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AnagraficheClienti]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AnagraficheGestori]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AnagraficheMedici]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Appuntamento]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Audit]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BachecaClienti]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CAPComuni]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ClientiMedici]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ClientiPacchetti]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CompensiPrestazioni]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CouponUtenti]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DisponibilitaMedico]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ExternalService]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Fatture]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[geoitalia]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LogMail]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Messaggi]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[OtpTokens]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Pacchetti]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PacchettiPrestazioni]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Pagamento]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Prestazioni]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PrestazioniClienti]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[QuestionarioClienti]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[StatistichePesoClienti]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TemplateMail]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TemplateMessaggi]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Utenze]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": null,
+   "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDateOnlyTimeOnly": true,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false
+}

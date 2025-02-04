@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebAppli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWindEF", "NorthWindEF\NorthWindEF.csproj", "{EDB1BE96-0CB1-4636-993E-5AAE31E72800}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCCM", "SCCM\SCCM.csproj", "{27488849-C4D0-40BF-919B-41B992C0108A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,10 @@ Global
 		{EDB1BE96-0CB1-4636-993E-5AAE31E72800}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDB1BE96-0CB1-4636-993E-5AAE31E72800}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDB1BE96-0CB1-4636-993E-5AAE31E72800}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27488849-C4D0-40BF-919B-41B992C0108A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27488849-C4D0-40BF-919B-41B992C0108A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27488849-C4D0-40BF-919B-41B992C0108A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27488849-C4D0-40BF-919B-41B992C0108A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
