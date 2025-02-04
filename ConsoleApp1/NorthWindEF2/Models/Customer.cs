@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NorthWindEF.Models;
+namespace NorthWindEF2.Models;
 
 public partial class Customer:BaseEntity
 {

@@ -5,9 +5,8 @@ using System.Collections.Generic;
 
 namespace SCCM.Models;
 
-public partial class AnagraficheGestori
+public partial class AnagraficheGestori:BaseEntity
 {
-    public int Id { get; set; }
 
     public string Nome { get; set; }
 
@@ -17,9 +16,7 @@ public partial class AnagraficheGestori
 
     public int IdUtenza { get; set; }
 
-    public DateTime DataCreazione { get; set; }
 
-    public DateTime DataAggiornamento { get; set; }
 
     public string Cap { get; set; }
 
@@ -29,9 +26,7 @@ public partial class AnagraficheGestori
 
     public string Telefono { get; set; }
 
-    public bool Abilitato { get; set; }
 
-    public DateTime? DataCancellazione { get; set; }
 
     public string CodiceFiscale { get; set; }
 

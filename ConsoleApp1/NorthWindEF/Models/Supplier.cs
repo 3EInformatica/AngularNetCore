@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace NorthWindEF.Models;
 
-public partial class Supplier
+public partial class Supplier:BaseEntity
 {
     public int SupplierId { get; set; }
 

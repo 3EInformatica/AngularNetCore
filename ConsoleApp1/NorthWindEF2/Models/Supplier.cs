@@ -3,12 +3,11 @@
 using System;
 using System.Collections.Generic;
 
-namespace NorthWindEF.Models;
+namespace NorthWindEF2.Models;
 
-public partial class Customer:BaseEntity
+public partial class Supplier:BaseEntity
 {
-    public string CustomerId { get; set; }
-
+ 
     public string CompanyName { get; set; }
 
     public string ContactName { get; set; }
@@ -29,7 +28,7 @@ public partial class Customer:BaseEntity
 
     public string Fax { get; set; }
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public string HomePage { get; set; }
 
-    public virtual ICollection<CustomerDemographic> CustomerTypes { get; set; } = new List<CustomerDemographic>();
+    public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }

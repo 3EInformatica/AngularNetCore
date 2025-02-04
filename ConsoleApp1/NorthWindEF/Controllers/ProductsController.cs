@@ -36,7 +36,7 @@ namespace NorthWindEF.Controllers
         public IActionResult GetAll<T>()
         {
 
-            var products = context.T.ToList();
+            var products = context.Products.ToList();
 
             return Ok(products);
         }

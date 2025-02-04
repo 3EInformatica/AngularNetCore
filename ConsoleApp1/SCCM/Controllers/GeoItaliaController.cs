@@ -31,21 +31,21 @@ namespace SCCM.Controllers
             return Ok(geoitalias);
         }
 
-        [HttpGet]
-        [Route("Search")]
-        public IActionResult Search(string nomecomune, )
-        {
+        //[HttpGet]
+        //[Route("Search")]
+        //public IActionResult Search(string nomecomune, )
+        //{
 
-            var geoitalias = context.Geoitalia
-                .Where(s => s.DenominazioneItalianaEStraniera.Contains(nomecomune))
-                .OrderBy(s => s.CodiceRegione)
-                .ThenBy(s => s.CodiceProvinciaStorico1)
-                .Take(10);
+        //    var geoitalias = context.Geoitalia
+        //        .Where(s => s.DenominazioneItalianaEStraniera.Contains(nomecomune))
+        //        .OrderBy(s => s.CodiceRegione)
+        //        .ThenBy(s => s.CodiceProvinciaStorico1)
+        //        .Take(10);
 
 
-            var risultato = geoitalias.ToList();
-            return Ok(risultato);
-        }
+        //    var risultato = geoitalias.ToList();
+        //    return Ok(risultato);
+        //}
 
     }
 }

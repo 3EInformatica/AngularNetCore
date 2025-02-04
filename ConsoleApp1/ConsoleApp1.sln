@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWindEF", "NorthWindEF\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCCM", "SCCM\SCCM.csproj", "{27488849-C4D0-40BF-919B-41B992C0108A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWindEF2", "NorthWindEF2\NorthWindEF2.csproj", "{0C99BBAC-548B-4AF7-A344-5F2356C2B651}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,10 @@ Global
 		{27488849-C4D0-40BF-919B-41B992C0108A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27488849-C4D0-40BF-919B-41B992C0108A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27488849-C4D0-40BF-919B-41B992C0108A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C99BBAC-548B-4AF7-A344-5F2356C2B651}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C99BBAC-548B-4AF7-A344-5F2356C2B651}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C99BBAC-548B-4AF7-A344-5F2356C2B651}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C99BBAC-548B-4AF7-A344-5F2356C2B651}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
