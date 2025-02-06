@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SCCM.Models;
 
-public partial class Appuntamento
+public partial class Appuntamento: BaseEntity
 {
     public int Id { get; set; }
 

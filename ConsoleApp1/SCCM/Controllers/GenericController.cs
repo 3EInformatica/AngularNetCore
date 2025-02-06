@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SCCM.Models;
+using SCCM.Services;
 
 namespace SCCM.Controllers
 {
@@ -9,7 +10,11 @@ namespace SCCM.Controllers
     [ApiController]
     public class GenericController<T> : ControllerBase where T : BaseEntity
     {
-       
+        private GenericService<T> _genericService;
+        public GenericController()
+        {
+            _genericService = new GenericService<T>();
+        }
 
 
         [HttpGet]
@@ -17,7 +22,7 @@ namespace SCCM.Controllers
         public IActionResult GetAll()
         {
 
-            var geoitalias = _dbSet.Where(s=>s.Abilitato).ToList();
+            var geoitalias = _genericService.GetAll();
             return Ok(geoitalias);
         }
 
@@ -25,7 +30,7 @@ namespace SCCM.Controllers
         [Route("GetById/{id}")]
         public IActionResult GetById(int id)
         {
-            var geoitalias = _dbSet.FirstOrDefault(s=>s.Id==id && s.Abilitato);
+            var geoitalias = _genericService.GetById(id);
             return Ok(geoitalias);
         }
 
@@ -33,9 +38,7 @@ namespace SCCM.Controllers
         [Route("Insert")]
         public IActionResult Insert([FromBody] T element)
         {
-            element.DataCreazione = DateTime.Now;
-            var geoitalias = _dbSet.Add(element);
-            _context.SaveChanges();
+            _genericService.New(element);
             return Ok(true);
         }
 
@@ -44,23 +47,23 @@ namespace SCCM.Controllers
         [Route("Delete/{id}")]
         public IActionResult Delete(int id)
         {
-            var geoitalias = _dbSet.FirstOrDefault(s => s.Id == id && s.Abilitato);
-            geoitalias.Abilitato = false;
-            geoitalias.DataCancellazione = DateTime.Now;
-            _context.SaveChanges();
 
-            return Ok(true);
+
+            T? entity = _genericService.GetById(id);
+            if (entity == null)
+            {
+                return NotFound();
+            }
+            return Ok(_genericService.Delete(entity));
+
+      
         }
 
         [HttpPut]
         [Route("Update")]
         public IActionResult Update(T element)
         {
-            element.DataAggiornamento = DateTime.Now;
-            _context.Entry(element).State = EntityState.Modified;
-            _context.SaveChanges();
-
-            return Ok(true);
+            return Ok(_genericService.Edit(element));
         }
 
         [HttpDelete]
@@ -68,8 +71,8 @@ namespace SCCM.Controllers
         public IActionResult HardDelete(int id)
         {
             var geoitalias = _dbSet.FirstOrDefault(s => s.Id == id && s.Abilitato);
-            
-            if(geoitalias!=null)
+
+            if (geoitalias != null)
             {
                 _dbSet.Remove(geoitalias);
             }

@@ -30,9 +30,9 @@ namespace SCCM.Services
             _context.SaveChanges();
             return entity;
         }
-        public virtual T Edit(T entity, int id)
+        public virtual T Edit(T entity)
         {
-            T? existingEntity = GetById(id);
+            T? existingEntity = GetById(entity.Id);
             if (existingEntity == null)
             {
                 return New(entity);
